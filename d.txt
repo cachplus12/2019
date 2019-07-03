@@ -1,0 +1,107 @@
+CREATE TABLE Projet
+(
+	idProjet INT PRIMARY KEY NOT NULL,
+	nomProjet VARCHAR(20) NOT NULL,
+	objetProt VARCHAR(100) NOT NULL,
+	comProjet VARCHAR(100) NOT NULL,
+	nComProjet INT NOT NULL,
+	dateReception DATETIME NOT NULL,
+	designationProjet VARCHAR(50) NOT NULL,
+	idclient int references Client(idClient)
+)
+
+CREATE TABLE Client
+(
+	idClient INT PRIMARY KEY NOT NULL,
+	nomClient VARCHAR(20),
+	telClient VARCHAR(20),
+	societe VARCHAR(20),
+	adresse1 VARCHAR(50),
+	adresse2 VARCHAR(50),
+	ville VARCHAR(20)
+)
+
+
+CREATE TABLE Secteur
+(
+	idSecteur INT PRIMARY KEY NOT NULL,
+	nomSecteur VARCHAR(20) NOT NULL,
+	siteSecteur VARCHAR(50),
+	adresse1 VARCHAR(50),
+	adresse2 VARCHAR(50),
+	prestation VARCHAR(50),
+	expediteur VARCHAR(50),
+	destinataire VARCHAR(50),
+	recuLe VARCHAR(20),
+	recuPar VARCHAR(20),
+	retourLe VARCHAR(20),
+	retourPar VARCHAR(20),
+	idprojet INT REFERENCES Projet(idProjet)
+)
+
+/*
+-
+-**********TABLE PRESTATION*********
+-
+*/
+
+CREATE TABLE Prestation
+(
+	idPrestation INT PRIMARY KEY NOT NULL,
+	refPrestation VARCHAR(20) UNIQUE NOT NULL,
+	nomPrestation VARCHAR(20) NOT NULL,
+	idProjet INT REFERENCES Projet(idProjet)
+)
+
+CREATE TABLE Utilisateur
+(
+	idUtilisateur INT PRIMARY KEY NOT NULL,
+	nomUtilisateur VARCHAR(20) NOT NULL,
+	prenomUtilisateur VARCHAR(20) NOT NULL,
+	loginUtilisateur VARCHAR(20) NOT NULL,
+	passwordUtilisateur VARCHAR(20) NOT NULL,
+	typeTravaille VARCHAR(20),
+	commentaire VARCHAR(20)
+)
+
+CREATE TABLE Heure
+(
+	idHeure INT PRIMARY KEY NOT NULL,
+	nomdProjet VARCHAR(20) NOT NULL,
+	nomTache VARCHAR(20) NOT NULL,
+	nomPrestation VARCHAR(20) NOT NULL,
+	idUtilisateur INT REFERENCES Utilisateur(idUtilisateur) NOT NULL,
+	moisActuelle DATETIME NOT NULL,
+	j1 float,
+	j2 float,
+	j3 float,
+	j4 float,
+	j5 float,
+	j6 float,
+	j7 float,
+	j8 float,
+	j9 float,
+	j10 float,
+	j11 float,
+	j12 float,
+	j13 float,
+	j14 float,
+	j15 float,
+	j16 float,
+	j17 float,
+	j18 float,
+	j19 float,
+	j20 float,
+	j21 float,
+	j22 float,
+	j23 float,
+	j24 float,
+	j25 float,
+	j26 float,
+	j27 float,
+	j28 float,
+	j29 float,
+	j30 float,
+	j31 float
+)
+http://lp.uae.ma/?controller=precandidature&action=form&menu=precandidature
